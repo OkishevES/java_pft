@@ -1,20 +1,26 @@
 package ru.stqa.pft.addressbook;
 
-import java.util.concurrent.TimeUnit;
-import org.testng.annotations.*;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
 
 public class GroupCreationTests {
-  private WebDriver wd;
+    private WebDriver wd;
 
-  @BeforeMethod(alwaysRun = true)
-  public void setUp() throws Exception {
-    wd = new FirefoxDriver();
-    wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    wd.get("http://localhost/addressbook/");
-      login("admin", "secret");
-  }
+    @BeforeMethod(alwaysRun = true)
+    public void setUp() throws Exception {
+        wd = new FirefoxDriver();
+        wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wd.get("http://localhost/addressbook/");
+        login("admin", "secret");
+    }
 
     private void login(String username, String password) {
         wd.findElement(By.name("user")).click();
@@ -26,14 +32,14 @@ public class GroupCreationTests {
     }
 
     @Test
-  public void testGroupCreation() throws Exception {
+    public void testGroupCreation() throws Exception {
         gotoGroupPage();
         initGroupCreation();
         fillGroupForm(new GroupData("test1", "test2", "test3"));
         submitGroupCreation();
         returnToGroupPage();
-        wd.findElement(By.linkText("Logout")).click();
-  }
+
+    }
 
     private void returnToGroupPage() {
         wd.findElement(By.linkText("group page")).click();
@@ -64,27 +70,29 @@ public class GroupCreationTests {
     }
 
     @AfterMethod(alwaysRun = true)
-  public void tearDown() throws Exception {
-    wd.quit();
-  }
+    public void tearDown() throws Exception {
 
-  private boolean isElementPresent(By by) {
-    try {
-      wd.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
+        wd.findElement(By.linkText("Logout")).click();
+        wd.quit();
     }
-  }
 
-  private boolean isAlertPresent() {
-    try {
-      wd.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
+    private boolean isElementPresent(By by) {
+        try {
+            wd.findElement(by);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
-  }
+
+    private boolean isAlertPresent() {
+        try {
+            wd.switchTo().alert();
+            return true;
+        } catch (NoAlertPresentException e) {
+            return false;
+        }
+    }
 
 
 }

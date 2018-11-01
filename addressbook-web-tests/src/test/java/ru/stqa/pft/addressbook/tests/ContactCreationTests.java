@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.tests;
 
 import org.testng.annotations.Test;
 
@@ -6,9 +6,9 @@ public class ContactCreationTests extends TestBase {
 
     @Test
     public void testContactCreation() throws Exception {
-        initContactCreation();
-        fillGroupForm();
-        submitContactCreation();
+        app.initContactCreation();
+        app.fillGroupForm();
+        app.submitContactCreation();
 
     }
 }

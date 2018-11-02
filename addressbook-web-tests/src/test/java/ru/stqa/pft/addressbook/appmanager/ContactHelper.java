@@ -36,4 +36,20 @@ public class ContactHelper  extends HelperBase {
         type(By.name("email2"), "info@rogaandkopit.su");
         type(By.name("email3"), "zakaz@rogaandkopit.su");
     }
+
+    public void selectContact() {
+        click(By.name("selected[]"));
+    }
+
+    public void initContactModification() {
+        click(By.cssSelector("img[alt=\"Edit\"]"));
+    }
+
+    public void submitContactModification() {
+        click(By.name("update"));
+    }
+
+    public void returnToContactPage() {
+        click(By.linkText("home"));
+    }
 }

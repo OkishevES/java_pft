@@ -7,7 +7,7 @@ public class ContactCreationTests extends TestBase {
     @Test
     public void testContactCreation() throws Exception {
         app.initContactCreation();
-        app.fillGroupForm();
+        app.getGroupHelper().fillGroupForm();
         app.submitContactCreation();
 
     }

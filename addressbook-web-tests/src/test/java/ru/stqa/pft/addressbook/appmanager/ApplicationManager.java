@@ -13,6 +13,7 @@ public class ApplicationManager {
     private SessionHelper sessionHelper;
     private NavigationHepler navigationHepler;
     private GroupHelper groupHelper;
+    private ContactHelper contactHelper;
 
 
     public void init() {
@@ -20,6 +21,7 @@ public class ApplicationManager {
         wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
         groupHelper = new GroupHelper(wd);
+        contactHelper = new ContactHelper(wd);
         navigationHepler = new NavigationHepler(wd);
         sessionHelper = new SessionHelper(wd);
         sessionHelper.login("admin", "secret");
@@ -42,18 +44,13 @@ public class ApplicationManager {
             return false;
         }
     }
-
-
-    public void submitContactCreation() {
-        wd.findElement(By.xpath("//input[@value='Enter']")).click();
-    }
-
-    public void initContactCreation() {
-        wd.findElement(By.linkText("add new")).click();
-    }
-
+    
     public GroupHelper getGroupHelper() {
         return groupHelper;
+    }
+
+    public ContactHelper getContactHelper() {
+        return contactHelper;
     }
 
     public NavigationHepler getNavigationHepler() {

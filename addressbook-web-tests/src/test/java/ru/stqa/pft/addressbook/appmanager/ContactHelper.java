@@ -20,30 +20,7 @@ public class ContactHelper  extends HelperBase {
         wd.findElement(By.linkText("add new")).click();
     }
 
-    public void fillContactForm(ContactData contactData, boolean creation) {
-        type(By.name("firstname"), "Иван");
-        type(By.name("middlename"), "Иванович");
-        type(By.name("lastname"), "Иванов");
-        type(By.name("nickname"), "Ванек");
-        type(By.name("title"), "Заголовок");
-        type(By.name("company"), "ООО Рога и копыта");
-        type(By.name("address"), "г.Новосибирск ул.Кирова д.48");
 
-        type(By.name("home"), "8 383 334 5555");
-        type(By.name("mobile"), "8 913 728 7458");
-        type(By.name("work"), "8 383 457 8564");
-        type(By.name("fax"), "8 383 457 8565");
-
-        type(By.name("email"), "ivanov.ii@rogaandkopit.su");
-        type(By.name("email2"), "info@rogaandkopit.su");
-        type(By.name("email3"), "zakaz@rogaandkopit.su");
-
-        if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
-        } else {
-            Assert.assertFalse(isElementPresent(By.name("new_group")));
-        }
-    }
 
 
 
@@ -70,4 +47,41 @@ public class ContactHelper  extends HelperBase {
     public void closeAlert() {
         wd.switchTo().alert().accept();
         }
+
+
+    public void createContact(ContactData contactData, boolean creation) {
+        fillContactForm(contactData, creation);
+        submitContactCreation();
+
+    }
+
+
+    public void fillContactForm(ContactData contactData, boolean creation) {
+        type(By.name("firstname"), "Иван");
+        type(By.name("middlename"), "Иванович");
+        type(By.name("lastname"), "Иванов");
+        type(By.name("nickname"), "Ванек");
+        type(By.name("title"), "Заголовок");
+        type(By.name("company"), "ООО Рога и копыта");
+        type(By.name("address"), "г.Новосибирск ул.Кирова д.48");
+
+        type(By.name("home"), "8 383 334 5555");
+        type(By.name("mobile"), "8 913 728 7458");
+        type(By.name("work"), "8 383 457 8564");
+        type(By.name("fax"), "8 383 457 8565");
+
+        type(By.name("email"), "ivanov.ii@rogaandkopit.su");
+        type(By.name("email2"), "info@rogaandkopit.su");
+        type(By.name("email3"), "zakaz@rogaandkopit.su");
+
+        if (creation) {
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.name("selected[]"));
+    }
+}

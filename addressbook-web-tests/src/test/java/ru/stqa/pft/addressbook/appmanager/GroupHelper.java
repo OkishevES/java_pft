@@ -50,13 +50,21 @@ wd.findElements(By.name("selected[]")).get(index).click();
         click(By.name("update"));
     }
 
+    //METOD SOZDANIUA GROUP
     public void createGroup(GroupData group) {
         initGroupCreation();
         fillGroupForm(group);
         submitGroupCreation();
         returnToGroupPage();
     }
-
+    //METOD MODIFIKACII GROUP
+    public void modifyGroup(int index, GroupData group) {
+        selectGroup(index);
+        initGroupModification();
+        fillGroupForm(group);
+        submitGroupModification();
+        returnToGroupPage();
+    }
     public boolean isThereAGroup() {
         return isElementPresent(By.name("selected[]"));
     }

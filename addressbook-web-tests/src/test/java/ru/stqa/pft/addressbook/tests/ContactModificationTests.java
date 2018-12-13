@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ContactModificationTests extends TestBase{
 
-    @Test
+    @Test(enabled = false)
     public void testContactModification(){
         app.getNavigationHepler().gotoHomePage();
         if(! app.getContactHelper().isThereAContact()) {
@@ -26,7 +26,7 @@ public class ContactModificationTests extends TestBase{
         before.remove(before.size() - 1);
         before.add(contact);
 
-        
+
         Comparator<? super ContactData> ById = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
         before.sort(ById);
         after.sort(ById);

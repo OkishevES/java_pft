@@ -11,11 +11,11 @@ public class ContactCreationTests extends TestBase {
 
     @Test (enabled = false)
     public void testContactCreation() throws Exception {
-       app.getNavigationHepler().gotoHomePage();
+       app.goTo().gotoHomePage();
         List<ContactData> before = app.getContactHelper().getContactList();
         ContactData contact = new ContactData("Group","Иван", "Иванович", "Иванов", "Ванек", "Заголовок", "ООО Рога и копыта", "г.Новосибирск ул.Кирова д.48", "8 383 334 5555", "8 913 728 7458", "8 383 457 8564", "8 383 457 8565", "ivanov.ii@rogaandkopit.su", "info@rogaandkopit.su", "zakaz@rogaandkopit.su");
         app.getContactHelper().createContact(contact, true);
-        app.getNavigationHepler().gotoHomePage();
+        app.goTo().gotoHomePage();
         List<ContactData> after = app.getContactHelper().getContactList();
         Assert.assertEquals(after.size(), before.size() + 1);
 

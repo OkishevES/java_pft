@@ -68,7 +68,7 @@ public class ApplicationManager {
         }
     }
 
-    public GroupHelper getGroupHelper() {
+    public GroupHelper group() {
         return groupHelper;
     }
 
@@ -76,7 +76,7 @@ public class ApplicationManager {
         return contactHelper;
     }
 
-    public NavigationHepler getNavigationHepler() {
+    public NavigationHepler goTo() {
         return navigationHepler;
     }
 

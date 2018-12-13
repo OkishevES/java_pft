@@ -2,9 +2,13 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper  extends HelperBase {
 
@@ -28,7 +32,7 @@ public class ContactHelper  extends HelperBase {
         click(By.name("selected[]"));
     }
 
-    public void initContactModification() {
+    public void initContactModification(int i) {
         click(By.cssSelector("img[alt=\"Edit\"]"));
     }
 
@@ -46,7 +50,7 @@ public class ContactHelper  extends HelperBase {
 
     public void closeAlert() {
         wd.switchTo().alert().accept();
-        }
+    }
 
 
     public void createContact(ContactData contactData, boolean creation) {
@@ -82,4 +86,21 @@ public class ContactHelper  extends HelperBase {
     }
 
     public boolean isThereAContact() { return isElementPresent(By.name("selected[]")); }
+    public List<ContactData> getContactList() {
+        List<ContactData> contacts = new ArrayList<ContactData>();
+        List<WebElement> elements = wd.findElements(By.cssSelector("tr[name='entry']"));
+        for (WebElement element : elements) {
+            List<WebElement> columns = element.findElements(By.cssSelector("td"));
+            String lastName = columns.get(1).getText();
+            String firstName = columns.get(2).getText();
+            String address = columns.get(3).getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            ContactData contact = new ContactData(id, null, firstName, null,  lastName, null, null, null,null,null, null, null, null, null, null, null);
+            contacts.add(contact);
+            System.out.println(firstName);
+            System.out.println(lastName);
+            System.out.println(address);
+        }
+        return contacts;
+    }
 }

@@ -10,20 +10,24 @@ import org.openqa.selenium.remote.BrowserType;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.testng.AssertJUnit.fail;
+
 public class ApplicationManager {
     WebDriver wd;
-
     private SessionHelper sessionHelper;
     private NavigationHepler navigationHepler;
     private GroupHelper groupHelper;
     private ContactHelper contactHelper;
+    public StringBuffer verificationErrors = new StringBuffer();
+    public boolean acceptNextAlert = true;
+    public String baseUrl;
     private String browser;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
     }
 
-
+//Vibor brauzera
     public void init() {
         if (browser.equals (BrowserType.FIREFOX)) {
             wd = new FirefoxDriver();
@@ -32,29 +36,23 @@ public class ApplicationManager {
         } else if (browser.equals (BrowserType.IE)) {
             wd = new InternetExplorerDriver();
         }
+        baseUrl = "http://localhost/addressbook/";
         wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
-        groupHelper = new
 
-                GroupHelper(wd);
-
-        contactHelper = new
-
-                ContactHelper(wd);
-
-        navigationHepler = new
-
-                NavigationHepler(wd);
-
-        sessionHelper = new
-
-                SessionHelper(wd);
+        groupHelper = new GroupHelper(wd);
+        contactHelper = new ContactHelper(wd);
+        navigationHepler = new NavigationHepler(wd);
+        sessionHelper = new SessionHelper(wd);
         sessionHelper.login("admin", "secret");
     }
 
-
     public void stop() {
         wd.quit();
+        String verificationErrorString = verificationErrors.toString();
+        if (!"".equals(verificationErrorString)) {
+            fail(verificationErrorString);
+        }
     }
 
     public void logout() {
@@ -81,4 +79,5 @@ public class ApplicationManager {
     public NavigationHepler getNavigationHepler() {
         return navigationHepler;
     }
+
 }

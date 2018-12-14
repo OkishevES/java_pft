@@ -5,8 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.GroupData;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class GroupHelper extends HelperBase {
 
@@ -36,11 +37,10 @@ public class GroupHelper extends HelperBase {
         click(By.name("delete"));
     }
 
-    public void selectGroup(int index) {
-wd.findElements(By.name("selected[]")).get(index).click();
-
+    //VIBOR GRUP NEW
+    public void selectGroupById(int id) {
+        wd.findElement(By.cssSelector("input[value='"+ id +"']")).click();
     }
-
 
     public void initGroupModification() {
         click(By.name("edit"));
@@ -58,19 +58,21 @@ wd.findElements(By.name("selected[]")).get(index).click();
         returnToGroupPage();
     }
     //METOD MODIFIKACII GROUP
-    public void modify(int index, GroupData group) {
-        selectGroup(index);
+    public void modify(GroupData group) {
+        selectGroupById(group.getId());
         initGroupModification();
         fillGroupForm(group);
         submitGroupModification();
         returnToGroupPage();
     }
-    //METOD UDALENIYA GROUP
-    public void delete(int index) {
-        selectGroup(index);
+
+    //METOD UDALENIYA NEW GROUP
+    public void delete(GroupData group) {
+        selectGroupById(group .getId());
         deleteSelectedGroups();
         returnToGroupPage();
     }
+
     public boolean isThereAGroup() {
         return isElementPresent(By.name("selected[]"));
     }
@@ -80,8 +82,8 @@ wd.findElements(By.name("selected[]")).get(index).click();
     }
 
     //sbisok elementov
-    public List<GroupData> list() {
-        List<GroupData> groups = new ArrayList<GroupData>();
+    public Set<GroupData> all() {
+        Set<GroupData> groups = new HashSet<GroupData>();
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements){
             String name = element.getText();
@@ -91,4 +93,6 @@ wd.findElements(By.name("selected[]")).get(index).click();
         }
         return groups;
     }
+
+
 }

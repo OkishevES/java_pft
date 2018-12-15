@@ -1,24 +1,23 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-public class NavigationHepler extends HelperBase {
+public class NavigationHelper extends HelperBase {
 
-    public NavigationHepler(WebDriver wd) {
-        super(wd);
+    public NavigationHelper(ApplicationManager app) {
+        super(app);
     }
 
-    public void GroupPage() {
+    public void groupPage() {
         if (isElementPresent(By.tagName("h1"))
-                && wd.findElement(By.tagName("h1")).getText().equals("Groups")
+                && driver.findElement(By.tagName("h1")).getText().equals("Groups")
                 && isElementPresent(By.name("new"))) {
             return;
         }
         click(By.linkText("groups"));
     }
 
-    public void gotoHomePage() {
+    public void homePage() {
         if (isElementPresent(By.id("maintable"))) {
             return;
         }

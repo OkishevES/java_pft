@@ -16,11 +16,13 @@ public class ContactCreationTests extends TestBase {
                 .withFirstName("Ivanov1")
                 .withLastName("Ivan")
                 .withMiddleName("Ivanovich1")
-                .withNickname("VANYA")
+                .withNickName("VANYA")
                 .withTitle("TestVanya1")
                 .withCompany("Testiroff")
                 .withAddress("Novocibirsk1")
-                .withMobile("+7913545544")
+                .withHomePhone  ("+7(383)545543")
+                .withMobilePhone("+7(913)545544")
+                .withWorkPhone  ("+7(913)545545")
                 .withEmail("ivanov@gmail.com")
                 .withGroup("Group1");
         app.contact().create(contact, true);

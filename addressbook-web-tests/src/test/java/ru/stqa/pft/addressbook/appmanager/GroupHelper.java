@@ -71,7 +71,11 @@ public class GroupHelper extends HelperBase {
         groupCache = null;
         returnToGroupPage();
     }
+    //количество элементов коллекции
+    public int сount() {
+        return driver.findElements(By.name("selected[]")).size(); }
 
+    //создаем кэш
     private Groups groupCache = null;
 
     public Groups all(){
@@ -88,5 +92,4 @@ public class GroupHelper extends HelperBase {
         }
         return new Groups(groupCache);
     }
-
 }

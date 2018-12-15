@@ -113,8 +113,8 @@ public class ContactHelper extends HelperBase {
             return false;
         }
     }
-
-    public int getContactCount() {
+    //Вернуть количество элементов коллекции Быстрая проверка
+    public int сount() {
         return driver.findElements(By.xpath("//table[@id='maintable']//input[@name='selected[]']")).size();
     }
 

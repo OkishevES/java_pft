@@ -57,20 +57,7 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@value='Delete']"));
     }
 
-    public void modify(ContactData contact) {
-        initContactModificationById(contact.getId());
-        fillContactForm(contact, false);
-        submitContactModification();
-        app.goTo().homePage();
-    }
 
-    public void delete(ContactData contact) {
-        selectContactById(contact.getId());
-        app.acceptNextAlert = true;
-        deleteSelectedContacts();
-        closeDialogWindow();
-        app.goTo().homePage();
-    }
 
     public void initContactModification(int index) {
         driver.findElements(By.xpath("//img[@title='Edit']")).get(index).click();
@@ -88,14 +75,32 @@ public class ContactHelper extends HelperBase {
         assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
         driver.findElement(By.cssSelector("div.msgbox"));
     }
-
+    //Создание
     public void create(ContactData contactData, boolean creation) {
         gotoNewContact();
         fillContactForm(contactData, creation);
         submitContactCreation();
+        contactCache = null;
+        app.goTo().homePage();
+
+    }
+    //Изменение
+    public void modify(ContactData contact) {
+        initContactModificationById(contact.getId());
+        fillContactForm(contact, false);
+        submitContactModification();
+        contactCache = null;
         app.goTo().homePage();
     }
-
+    //Удаление
+    public void delete(ContactData contact) {
+        selectContactById(contact.getId());
+        app.acceptNextAlert = true;
+        deleteSelectedContacts();
+        closeDialogWindow();
+        contactCache = null;
+        app.goTo().homePage();
+    }
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
     }
@@ -113,8 +118,14 @@ public class ContactHelper extends HelperBase {
         return driver.findElements(By.xpath("//table[@id='maintable']//input[@name='selected[]']")).size();
     }
 
-    public Contacts all() {
-        Contacts contacts = new Contacts();
+    private Contacts contactCache = null;
+
+    public Contacts all(){
+        if (contactCache != null) {
+            return new Contacts(contactCache);
+        }
+
+        contactCache = new Contacts();
         List<WebElement> elements = driver.findElements(By.cssSelector("tr[name='entry']"));
         for (WebElement element : elements) {
             List<WebElement> columns = element.findElements(By.cssSelector("td"));
@@ -123,9 +134,9 @@ public class ContactHelper extends HelperBase {
             String address = columns.get(3).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             ContactData contact = new ContactData().withId(id).withFirstName(firstName).withLastName(lastName).withAddress(address);
-            contacts.add(contact);
+            contactCache.add(contact);
             System.out.println(id + ", " + firstName + ", " + lastName + ", " + address);
         }
-        return contacts;
+        return contactCache;
     }
 }

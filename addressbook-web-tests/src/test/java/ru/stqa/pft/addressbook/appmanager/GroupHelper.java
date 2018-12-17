@@ -75,6 +75,14 @@ public class GroupHelper extends HelperBase {
     public int сount() {
         return driver.findElements(By.name("selected[]")).size(); }
 
+    public boolean isThereAGroup() {
+        return isElementPresent(By.name("selected[]"));
+    }
+
+    public int count() {
+        return driver.findElements(By.name("selected[]")).size();
+    }
+
     //создаем кэш
     private Groups groupCache = null;
 

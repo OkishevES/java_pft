@@ -13,17 +13,19 @@ public class ContactCreationTests extends TestBase {
         app.goTo().homePage();
         Contacts before = app.contact().all();
         ContactData contact = new ContactData()
-                .withFirstName("Ivanov1")
+                .withFirstName("Ivanov")
                 .withLastName("Ivan")
-                .withMiddleName("Ivanovich1")
+                .withMiddleName("Ivanovich")
                 .withNickName("VANYA")
                 .withTitle("TestVanya1")
                 .withCompany("Testiroff")
-                .withAddress("Novocibirsk1")
+                .withAddress("Novocibirsk")
                 .withHomePhone  ("+7(383)545543")
                 .withMobilePhone("+7(913)545544")
                 .withWorkPhone  ("+7(913)545545")
-                .withEmail("ivanov@gmail.com")
+                .withEmail("ivan1@gmail.com")
+                .withEmail2("ivan2@gmail.com")
+                .withEmail3("ivan3@gmail.com")
                 .withGroup("Group1");
         app.contact().create(contact, true);
         assertThat(app.contact().сount(), equalTo(before.size()+ 1));

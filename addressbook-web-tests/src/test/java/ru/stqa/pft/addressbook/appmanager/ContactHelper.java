@@ -35,6 +35,7 @@ public class ContactHelper extends HelperBase {
         type(By.name("mobile"), contactData.getMobilePhone());
         type(By.name("work"), contactData.getWorkPhone());
         type(By.name("email"), contactData.getEmail());
+
         if (creation) {
             if (isThereAGroupInList(contactData)) {
                 new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
@@ -60,15 +61,6 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@value='Delete']"));
     }
 
-    //Создание
-    public void create(ContactData contactData, boolean creation) {
-        gotoNewContact();
-        fillContactForm(contactData, creation);
-        submitContactCreation();
-        contactCache = null;
-        app.goTo().homePage();
-
-    }
     //Изменение
     public void modify(ContactData contact) {
         initContactModificationById(contact.getId());
@@ -92,6 +84,41 @@ public class ContactHelper extends HelperBase {
         driver.findElements(By.xpath("//img[@title='Edit']")).get(index).click();
     }
 
+    //Тест номеров дополнительных телефонов
+
+    public ContactData infoFromEditForm(ContactData contact) {
+        initContactModificationById(contact.getId());
+        String firstName = driver.findElement(By.name("firstname")).getAttribute("value");
+        String lastName = driver.findElement(By.name("lastname")).getAttribute("value");
+        String address = driver.findElement(By.name("address")).getText();
+        String email = driver.findElement(By.name("email")).getAttribute("value");
+        String email2 = driver.findElement(By.name("email2")).getAttribute("value");
+        String email3 = driver.findElement(By.name("email3")).getAttribute("value");
+        String home = driver.findElement(By.name("home")).getAttribute("value");
+        String mobile = driver.findElement(By.name("mobile")).getAttribute("value");
+        String work = driver.findElement(By.name("work")).getAttribute("value");
+        driver.navigate().back();
+        return new ContactData().withId(contact.getId()).withFirstName(firstName).withLastName(lastName)
+                .withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3)
+                .withLastName(lastName).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+    }
+
+    private void initContactModificationById(int id) {
+        driver.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
+        // other methods to find this element "pencil":
+        // 1--
+        // WebElement checkbox = driver.findElement(By.cssSelector(String.format("input[value='%s']", id))); //find checkbox
+        // WebElement row = checkbox.findElement(By.xpath("./../..")); //goto up to parent row
+        // List<WebElement> cells = row.findElements(By.tagName("td")); //read all cells in row
+        // cells.get(7).findElement(By.tagName("a")).click(); //click on link
+        // 2--
+        //driver.findElement(By.xpath(String.format("//input[@value='%s']/../../td[8]/a", id))).click();
+        // 3--
+        //driver.findElement(By.xpath(String.format("//tr[.//input[@value='%s']]/td[8]/a", id))).click();
+        // 4--
+        //driver.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
+    }
+
     public void submitContactModification() {
         click(By.name("update"));
     }
@@ -99,6 +126,16 @@ public class ContactHelper extends HelperBase {
     public void closeDialogWindow() {
         assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
         driver.findElement(By.cssSelector("div.msgbox"));
+    }
+
+    //Создание
+    public void create(ContactData contactData, boolean creation) {
+        gotoNewContact();
+        fillContactForm(contactData, creation);
+        submitContactCreation();
+        contactCache = null;
+        app.goTo().homePage();
+
     }
 
     public boolean isThereAContact() {
@@ -124,51 +161,26 @@ public class ContactHelper extends HelperBase {
             return new Contacts(contactCache); //return copy of contactCache
         }
         contactCache = new Contacts();
-            List<WebElement> elements = driver.findElements(By.cssSelector("tr[name='entry']"));
-            for (WebElement element : elements) {
-                List<WebElement> columns = element.findElements(By.cssSelector("td"));
-                String lastName = columns.get(1).getText();
-                String firstName = columns.get(2).getText();
-                String address = columns.get(3).getText();
-                String allPhones = columns.get(5).getText();
-                int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-                contactCache.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName).withAddress(address)
-                        .withAllPhones(allPhones));
-                //System.out.println(id + ", " + firstName + ", " + lastName + ", " + address);
-            }
-            return new Contacts(contactCache);
+        List<WebElement> elements = driver.findElements(By.cssSelector("tr[name='entry']"));
+        for (WebElement element : elements) {
+            List<WebElement> columns = element.findElements(By.cssSelector("td"));
+            String lastName = columns.get(1).getText();
+            String firstName = columns.get(2).getText();
+            String address = columns.get(3).getText();
+            String allEmails = columns.get(4).getText();
+            String allPhones = columns.get(5).getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            contactCache.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName).withAddress(address)
+                    .withAllEmails(allEmails).withAllPhones(allPhones));
+            //System.out.println(id + ", " + firstName + ", " + lastName + ", " + address);
         }
-
-
-    //Тест номеров дополнительных телефонов
-
-    public ContactData infoFromEditForm(ContactData contact) {
-        initContactModificationById(contact.getId());
-        String firstName = driver.findElement(By.name("firstname")).getAttribute("value");
-        String lastName = driver.findElement(By.name("lastname")).getAttribute("value");
-        String home = driver.findElement(By.name("home")).getAttribute("value");
-        String mobile = driver.findElement(By.name("mobile")).getAttribute("value");
-        String work = driver.findElement(By.name("work")).getAttribute("value");
-        driver.navigate().back();
-        return new ContactData().withId(contact.getId()).withFirstName(firstName)
-                .withLastName(lastName).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+        return new Contacts(contactCache);
     }
 
-    public void initContactModificationById(int id) {
-        driver.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
-        // other methods to find this element "pencil":
-        // 1--
-        // WebElement checkbox = driver.findElement(By.cssSelector(String.format("input[value='%s']", id))); //find checkbox
-        // WebElement row = checkbox.findElement(By.xpath("./../..")); //goto up to parent row
-        // List<WebElement> cells = row.findElements(By.tagName("td")); //read all cells in row
-        // cells.get(7).findElement(By.tagName("a")).click(); //click on link
-        // 2--
-        //driver.findElement(By.xpath(String.format("//input[@value='%s']/../../td[8]/a", id))).click();
-        // 3--
-        //driver.findElement(By.xpath(String.format("//tr[.//input[@value='%s']]/td[8]/a", id))).click();
-        // 4--
-        //driver.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
-    }
+
+
+
+
 
 
 

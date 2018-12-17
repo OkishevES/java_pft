@@ -4,24 +4,24 @@ import java.util.Objects;
 
 public class GroupData {
     private int grid = Integer.MAX_VALUE;
-    private String grname;
-    private String grheader;
-    private String grfooter;
+    private String groupname;
+    private String groupheader;
+    private String groupfooter;
 
     public int getGrid() {
         return grid;
     }
 
-    public String getGrname() {
-        return grname;
+    public String getGroupname() {
+        return groupname;
     }
 
-    public String getGrheader() {
-        return grheader;
+    public String getGroupheader() {
+        return groupheader;
     }
 
-    public String getGrfooter() {
-        return grfooter;
+    public String getGroupfooter() {
+        return groupfooter;
     }
 
     public GroupData withId(int grid) {
@@ -29,18 +29,18 @@ public class GroupData {
         return this;
     }
 
-    public GroupData withName(String grname) {
-        this.grname = grname;
+    public GroupData withName(String groupname) {
+        this.groupname = groupname;
         return this;
     }
 
-    public GroupData withHeader(String grheader) {
-        this.grheader = grheader;
+    public GroupData withHeader(String groupheader) {
+        this.groupheader = groupheader;
         return this;
     }
 
-    public GroupData withFooter(String grfooter) {
-        this.grfooter = grfooter;
+    public GroupData withFooter(String groupfooter) {
+        this.groupfooter = groupfooter;
         return this;
     }
 
@@ -48,7 +48,7 @@ public class GroupData {
     public String toString() {
         return "GroupData{" +
                 "grid=" + grid +
-                ", grname='" + grname + '\'' +
+                ", grname='" + groupname + '\'' +
                 '}';
     }
 
@@ -58,12 +58,12 @@ public class GroupData {
         if (o == null || getClass() != o.getClass()) return false;
         GroupData groupData = (GroupData) o;
         return grid == groupData.grid &&
-                Objects.equals(grname, groupData.grname);
+                Objects.equals(groupname, groupData.groupname);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(grid, grname);
+        return Objects.hash(grid, groupname);
     }
 }

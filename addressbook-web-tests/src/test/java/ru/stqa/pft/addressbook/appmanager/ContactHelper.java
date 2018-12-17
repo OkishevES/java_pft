@@ -36,6 +36,7 @@ public class ContactHelper extends HelperBase {
         type(By.name("work"), contactData.getWorkPhone());
         type(By.name("email"), contactData.getEmail());
 
+
         if (creation) {
             if (isThereAGroupInList(contactData)) {
                 new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());

@@ -21,6 +21,17 @@ public class ContactData {
     private String email3;
     private String allEmails;
     private String group;
+
+    public File getPhoto() {
+        return photo;
+    }
+
+
+    public ContactData withPhoto(File photo) {
+        this.photo = photo;
+        return this;
+    }
+
     private File photo;
 
     public String getAllPhones() {
@@ -196,5 +207,4 @@ public class ContactData {
                 ", firstname='" + firstname + '\'' +
                 '}';
     }
-
 }

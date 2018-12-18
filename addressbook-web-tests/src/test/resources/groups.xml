@@ -1,0 +1,102 @@
+<list>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 0</groupname>
+    <groupheader>header 0</groupheader>
+    <groupfooter>footer 0</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 1</groupname>
+    <groupheader>header 1</groupheader>
+    <groupfooter>footer 1</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 2</groupname>
+    <groupheader>header 2</groupheader>
+    <groupfooter>footer 2</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 3</groupname>
+    <groupheader>header 3</groupheader>
+    <groupfooter>footer 3</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 4</groupname>
+    <groupheader>header 4</groupheader>
+    <groupfooter>footer 4</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 5</groupname>
+    <groupheader>header 5</groupheader>
+    <groupfooter>footer 5</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 6</groupname>
+    <groupheader>header 6</groupheader>
+    <groupfooter>footer 6</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 7</groupname>
+    <groupheader>header 7</groupheader>
+    <groupfooter>footer 7</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 8</groupname>
+    <groupheader>header 8</groupheader>
+    <groupfooter>footer 8</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 9</groupname>
+    <groupheader>header 9</groupheader>
+    <groupfooter>footer 9</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 10</groupname>
+    <groupheader>header 10</groupheader>
+    <groupfooter>footer 10</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 11</groupname>
+    <groupheader>header 11</groupheader>
+    <groupfooter>footer 11</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 12</groupname>
+    <groupheader>header 12</groupheader>
+    <groupfooter>footer 12</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 13</groupname>
+    <groupheader>header 13</groupheader>
+    <groupfooter>footer 13</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 14</groupname>
+    <groupheader>header 14</groupheader>
+    <groupfooter>footer 14</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 15</groupname>
+    <groupheader>header 15</groupheader>
+    <groupfooter>footer 15</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 16</groupname>
+    <groupheader>header 16</groupheader>
+    <groupfooter>footer 16</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 17</groupname>
+    <groupheader>header 17</groupheader>
+    <groupfooter>footer 17</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 18</groupname>
+    <groupheader>header 18</groupheader>
+    <groupfooter>footer 18</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+  <ru.stqa.pft.addressbook.model.GroupData>
+    <groupname>group 19</groupname>
+    <groupheader>header 19</groupheader>
+    <groupfooter>footer 19</groupfooter>
+  </ru.stqa.pft.addressbook.model.GroupData>
+</list>

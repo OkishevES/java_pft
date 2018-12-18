@@ -37,7 +37,7 @@ public class ApplicationManager {
             wd = new InternetExplorerDriver();
         }
         baseUrl = "https://www.katalon.com/";
-        wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
         groupHelper = new GroupHelper(this);
         navigationHelper = new NavigationHelper(this);

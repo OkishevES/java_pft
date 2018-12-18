@@ -32,7 +32,9 @@ public class ContactData {
     private String email2;
     private String email3;
     private String allEmails;
+    @Expose
     private String group;
+    private File photo;
 
     public File getPhoto() {
         return photo;
@@ -43,8 +45,6 @@ public class ContactData {
         this.photo = photo;
         return this;
     }
-
-    private File photo;
 
     public String getAllPhones() {
         return allPhones;
@@ -195,23 +195,6 @@ public class ContactData {
         this.allEmails = allEmails;
         return this;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return Objects.equals(firstname, that.firstname) &&
-                Objects.equals(lastname, that.lastname) &&
-                Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, firstname, lastname);
-    }
-
     @Override
     public String toString() {
         return "ContactData{" +
@@ -219,4 +202,21 @@ public class ContactData {
                 ", firstname='" + firstname + '\'' +
                 '}';
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id &&
+                Objects.equals(firstname , that.firstname ) &&
+                Objects.equals(lastname, that.lastname);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, firstname , lastname);
+    }
+
+
 }

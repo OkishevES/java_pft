@@ -42,8 +42,6 @@ public class ContactHelper extends HelperBase {
                 new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
             } else {
                 new Select(driver.findElement(By.name("new_group"))).selectByVisibleText("[none]");
-        /*app.group().create(new GroupData(contactData.getGroup(), null, null));
-        create(contactData, creation);*/
             }
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
@@ -106,18 +104,6 @@ public class ContactHelper extends HelperBase {
 
     private void initContactModificationById(int id) {
         driver.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
-        // other methods to find this element "pencil":
-        // 1--
-        // WebElement checkbox = driver.findElement(By.cssSelector(String.format("input[value='%s']", id))); //find checkbox
-        // WebElement row = checkbox.findElement(By.xpath("./../..")); //goto up to parent row
-        // List<WebElement> cells = row.findElements(By.tagName("td")); //read all cells in row
-        // cells.get(7).findElement(By.tagName("a")).click(); //click on link
-        // 2--
-        //driver.findElement(By.xpath(String.format("//input[@value='%s']/../../td[8]/a", id))).click();
-        // 3--
-        //driver.findElement(By.xpath(String.format("//tr[.//input[@value='%s']]/td[8]/a", id))).click();
-        // 4--
-        //driver.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
     }
 
     public void submitContactModification() {
@@ -157,9 +143,13 @@ public class ContactHelper extends HelperBase {
     }
     private Contacts contactCache = null;
 
+    public int count() {
+        return driver.findElements(By.xpath("//table[@id='maintable']//input[@name='selected[]']")).size();
+    }
+
     public Contacts all() {
         if (contactCache != null) {
-            return new Contacts(contactCache); //return copy of contactCache
+            return new Contacts(contactCache);
         }
         contactCache = new Contacts();
         List<WebElement> elements = driver.findElements(By.cssSelector("tr[name='entry']"));
@@ -173,7 +163,6 @@ public class ContactHelper extends HelperBase {
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             contactCache.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName).withAddress(address)
                     .withAllEmails(allEmails).withAllPhones(allPhones));
-            //System.out.println(id + ", " + firstName + ", " + lastName + ", " + address);
         }
         return new Contacts(contactCache);
     }

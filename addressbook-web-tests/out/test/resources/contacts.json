@@ -1,22 +1,30 @@
 [
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {}
+  {
+    "firstname": "Ivanov 0",
+    "lastname": "Ivanov 0",
+    "contactMobilePhone": "+7913456810",
+    "email": "email0@mail.com",
+    "group": "group 0"
+  },
+  {
+    "firstname": "Ivanov 1",
+    "lastname": "Ivanov 1",
+    "contactMobilePhone": "+7913456811",
+    "email": "email1@mail.com",
+    "group": "group 1"
+  },
+  {
+    "firstname": "Ivanov 2",
+    "lastname": "Ivanov 2",
+    "contactMobilePhone": "+7913456812",
+    "email": "email2@mail.com",
+    "group": "group 2"
+  },
+  {
+    "firstname": "Ivanov 3",
+    "lastname": "Ivanov 3",
+    "contactMobilePhone": "+7913456813",
+    "email": "email3@mail.com",
+    "group": "group 3"
+  }
 ]

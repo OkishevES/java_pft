@@ -1,0 +1,30 @@
+<list>
+  <contact>
+    <firstname>Fedor 0</firstname>
+    <lastname>Petrov 0</lastname>
+    <contactMobilePhone>+79121234560</contactMobilePhone>
+    <email>email0@mail.com</email>
+    <group>group 0</group>
+  </contact>
+  <contact>
+    <firstname>Fedor 1</firstname>
+    <lastname>Petrov 1</lastname>
+    <contactMobilePhone>+79121234561</contactMobilePhone>
+    <email>email1@mail.com</email>
+    <group>group 1</group>
+  </contact>
+  <contact>
+    <firstname>Fedor 2</firstname>
+    <lastname>Petrov 2</lastname>
+    <contactMobilePhone>+79121234562</contactMobilePhone>
+    <email>email2@mail.com</email>
+    <group>group 2</group>
+  </contact>
+  <contact>
+    <firstname>Fedor 3</firstname>
+    <lastname>Petrov 3</lastname>
+    <contactMobilePhone>+79121234563</contactMobilePhone>
+    <email>email3@mail.com</email>
+    <group>group 3</group>
+  </contact>
+</list>

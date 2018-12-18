@@ -1,182 +1,30 @@
 [
   {
-    "firstname": "Fedor 0",
-    "lastname": "Petrov 0",
-    "nickname": "Fedora 0",
-    "company": "Company 0",
-    "address": "City 0",
-    "contactMobilePhone": "+79121234560",
-    "email": "email0@mail.com"
+    "firstname": "Ivanov 0",
+    "lastname": "Ivanov 0",
+    "contactMobilePhone": "+7913456810",
+    "email": "email0@mail.com",
+    "group": "group 0"
   },
   {
-    "firstname": "Fedor 1",
-    "lastname": "Petrov 1",
-    "nickname": "Fedora 1",
-    "company": "Company 1",
-    "address": "City 1",
-    "contactMobilePhone": "+79121234561",
-    "email": "email1@mail.com"
+    "firstname": "Ivanov 1",
+    "lastname": "Ivanov 1",
+    "contactMobilePhone": "+7913456811",
+    "email": "email1@mail.com",
+    "group": "group 1"
   },
   {
-    "firstname": "Fedor 2",
-    "lastname": "Petrov 2",
-    "nickname": "Fedora 2",
-    "company": "Company 2",
-    "address": "City 2",
-    "contactMobilePhone": "+79121234562",
-    "email": "email2@mail.com"
+    "firstname": "Ivanov 2",
+    "lastname": "Ivanov 2",
+    "contactMobilePhone": "+7913456812",
+    "email": "email2@mail.com",
+    "group": "group 2"
   },
   {
-    "firstname": "Fedor 3",
-    "lastname": "Petrov 3",
-    "nickname": "Fedora 3",
-    "company": "Company 3",
-    "address": "City 3",
-    "contactMobilePhone": "+79121234563",
-    "email": "email3@mail.com"
-  },
-  {
-    "firstname": "Fedor 4",
-    "lastname": "Petrov 4",
-    "nickname": "Fedora 4",
-    "company": "Company 4",
-    "address": "City 4",
-    "contactMobilePhone": "+79121234564",
-    "email": "email4@mail.com"
-  },
-  {
-    "firstname": "Fedor 5",
-    "lastname": "Petrov 5",
-    "nickname": "Fedora 5",
-    "company": "Company 5",
-    "address": "City 5",
-    "contactMobilePhone": "+79121234565",
-    "email": "email5@mail.com"
-  },
-  {
-    "firstname": "Fedor 6",
-    "lastname": "Petrov 6",
-    "nickname": "Fedora 6",
-    "company": "Company 6",
-    "address": "City 6",
-    "contactMobilePhone": "+79121234566",
-    "email": "email6@mail.com"
-  },
-  {
-    "firstname": "Fedor 7",
-    "lastname": "Petrov 7",
-    "nickname": "Fedora 7",
-    "company": "Company 7",
-    "address": "City 7",
-    "contactMobilePhone": "+79121234567",
-    "email": "email7@mail.com"
-  },
-  {
-    "firstname": "Fedor 8",
-    "lastname": "Petrov 8",
-    "nickname": "Fedora 8",
-    "company": "Company 8",
-    "address": "City 8",
-    "contactMobilePhone": "+79121234568",
-    "email": "email8@mail.com"
-  },
-  {
-    "firstname": "Fedor 9",
-    "lastname": "Petrov 9",
-    "nickname": "Fedora 9",
-    "company": "Company 9",
-    "address": "City 9",
-    "contactMobilePhone": "+79121234569",
-    "email": "email9@mail.com"
-  },
-  {
-    "firstname": "Fedor 10",
-    "lastname": "Petrov 10",
-    "nickname": "Fedora 10",
-    "company": "Company 10",
-    "address": "City 10",
-    "contactMobilePhone": "+791212345610",
-    "email": "email10@mail.com"
-  },
-  {
-    "firstname": "Fedor 11",
-    "lastname": "Petrov 11",
-    "nickname": "Fedora 11",
-    "company": "Company 11",
-    "address": "City 11",
-    "contactMobilePhone": "+791212345611",
-    "email": "email11@mail.com"
-  },
-  {
-    "firstname": "Fedor 12",
-    "lastname": "Petrov 12",
-    "nickname": "Fedora 12",
-    "company": "Company 12",
-    "address": "City 12",
-    "contactMobilePhone": "+791212345612",
-    "email": "email12@mail.com"
-  },
-  {
-    "firstname": "Fedor 13",
-    "lastname": "Petrov 13",
-    "nickname": "Fedora 13",
-    "company": "Company 13",
-    "address": "City 13",
-    "contactMobilePhone": "+791212345613",
-    "email": "email13@mail.com"
-  },
-  {
-    "firstname": "Fedor 14",
-    "lastname": "Petrov 14",
-    "nickname": "Fedora 14",
-    "company": "Company 14",
-    "address": "City 14",
-    "contactMobilePhone": "+791212345614",
-    "email": "email14@mail.com"
-  },
-  {
-    "firstname": "Fedor 15",
-    "lastname": "Petrov 15",
-    "nickname": "Fedora 15",
-    "company": "Company 15",
-    "address": "City 15",
-    "contactMobilePhone": "+791212345615",
-    "email": "email15@mail.com"
-  },
-  {
-    "firstname": "Fedor 16",
-    "lastname": "Petrov 16",
-    "nickname": "Fedora 16",
-    "company": "Company 16",
-    "address": "City 16",
-    "contactMobilePhone": "+791212345616",
-    "email": "email16@mail.com"
-  },
-  {
-    "firstname": "Fedor 17",
-    "lastname": "Petrov 17",
-    "nickname": "Fedora 17",
-    "company": "Company 17",
-    "address": "City 17",
-    "contactMobilePhone": "+791212345617",
-    "email": "email17@mail.com"
-  },
-  {
-    "firstname": "Fedor 18",
-    "lastname": "Petrov 18",
-    "nickname": "Fedora 18",
-    "company": "Company 18",
-    "address": "City 18",
-    "contactMobilePhone": "+791212345618",
-    "email": "email18@mail.com"
-  },
-  {
-    "firstname": "Fedor 19",
-    "lastname": "Petrov 19",
-    "nickname": "Fedora 19",
-    "company": "Company 19",
-    "address": "City 19",
-    "contactMobilePhone": "+791212345619",
-    "email": "email19@mail.com"
+    "firstname": "Ivanov 3",
+    "lastname": "Ivanov 3",
+    "contactMobilePhone": "+7913456813",
+    "email": "email3@mail.com",
+    "group": "group 3"
   }
 ]

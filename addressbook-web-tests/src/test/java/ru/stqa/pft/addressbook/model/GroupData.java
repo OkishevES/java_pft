@@ -1,14 +1,22 @@
 package ru.stqa.pft.addressbook.model;
 
+import com.google.gson.annotations.Expose;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 import java.util.Objects;
-
+@XStreamAlias("group")
 public class GroupData {
     @XStreamOmitField
     private int grid = Integer.MAX_VALUE;
+    @XStreamAlias("name")
+    @Expose
     private String groupname;
+    @Expose
+    @XStreamAlias("header")
     private String groupheader;
+    @Expose
+    @XStreamAlias("footer")
     private String groupfooter;
 
     public int getGrid() {
